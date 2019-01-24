@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Meet a 'Borg - Ca va pécho chez les Robots</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+        <img src="img/tinder.svg" alt="" class="header-content__logo">
+        <h1 class="header-content__title">Meet a 'Borg</h1>
+        <h2 class="header-content__subtitle">Ça va pécho chez les robots 🤖🍆🍑</h2>
+    </div>
+  </header>
+  <main class="wrapper" id="app">
+    <section class="intro">
+        <h3 class="intro__title">Faites votre choix</h3>
+        <p>Il y a <span class="hommes"> {{males.length}} hommes</span> et <span class="femmes">{{females.length}} femmes</span> !</p>
+        <p class="intro__txt">Robot ipsum Picoist encephaloform cortropic Filclinic Nippoploid kilolytic zoate. Vesicoity levoparous Egyptococcus stepsepalous stenoales sexuoling ochllyze xeraceae tarsorrhea taxthymia. Cytococcus cheirify gynaecoetic tristomy triboness bathyac conplastic siderogenesis ophioatory egenous. Myary cobaltofuge orphobe pneumonform Angloplex thalassoodont stethometric. Pathoholic newance poikilocline technographer desderma cuprless anthrostat hexgon cyanoicide. Pneumonozyme dendrism exbisect methylphage iridicoable hemoscope anthropomere. 
+          </p>
+    </section>
+    <section class="choice">
+      <button class="btn btn--neutral" @click="filter()">Afficher tout le monde</button>
+      <button class="btn btn--male" @click="filter('Male')">Afficher tous les hommes</button>
+      <button class="btn btn--female" @click="filter('Female')">Afficher toutes les femmes</button>
+    </section>
+    <section class="robots">
+      <div class="robot" :title="fullName(robot)"  v-for="robot in filteredRobots">
+        <h4 class="robot__name">{{robot.first_name}} <strong>{{robot.last_name}}</strong></h4>
+        <div class="overflowed-box">
+          <img class="robot__portrait" :src="robot.portrait" :alt="fullName(robot)">
+          <small class="robot__type"><strong>Type</strong> : {{robot.type}}</small>
+          <div class="robot__language"><strong>Langue parlée</strong> :<br> {{robot.language}}</div>
+        </div>
+        <p class="robot__description">{{robot.description}}</p>
+      </div>
+    </section>
+  </main>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
